@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+
+<!-- 
+https://gist.github.com/mixio/4f233eb409c287101277502505e6b644
+ -->
+
+<plist version="1.0">
+<dict>
+    <key>BBEditDocumentType</key>
+    <string>CodelessLanguageModule</string>
+    <key>BBLMColorsSyntax</key> <true/>
+    <key>BBLMIsCaseSensitive</key> <false/>
+    <key>BBLMLanguageCode</key>
+    <string>Ldgr</string>
+    <key>BBLMLanguageDisplayName</key>
+    <string>Ledger</string>
+    <key>BBLMScansFunctions</key>
+    <false/>
+    <key>BBLMSuffixMap</key>
+    <array>
+        <dict>
+        <key>BBLMLanguageSuffix</key>
+        <string>.ledger</string>
+        </dict>
+    </array>
+    <key>BBLMCanSpellCheckCodeRuns</key>
+    <false/>
+ 
+ 	<key>BBLMKeywords</key>
+	<array>
+	    <dict>
+	        <key>RunKind</key> <string>com.barebones.bblm.keyword</string>
+	        <key>Keywords</key>
+	        <array>
+				<string>Day</string>
+				<string>Week</string>
+				<string>Month</string>
+				<string>Quarter</string>
+				<string>Year</string>
+				<string>Days</string>
+				<string>Weeks</string>
+				<string>Months</string>
+				<string>Quarters</string>
+				<string>Years</string>
+				<string>Daily</string>
+				<string>Weekly</string>
+				<string>Biweekly</string>
+				<string>Monthly</string>
+				<string>Bimonthly</string>
+				<string>Quarterly</string>
+				<string>Yearly</string>
+				<string>Every</string>
+				<string>January</string>
+				<string>February</string>
+				<string>March</string>
+				<string>April</string>
+				<string>May</string>
+				<string>June</string>
+				<string>July</string>
+				<string>August</string>
+				<string>September</string>
+				<string>October</string>
+				<string>November</string>
+				<string>December</string>
+				<string>Jan</string>
+				<string>Feb</string>
+				<string>Mar</string>
+				<string>Apr</string>
+				<string>May</string>
+				<string>Jun</string>
+				<string>Jul</string>
+				<string>Aug</string>
+				<string>Sep</string>
+				<string>Oct</string>
+				<string>Nov</string>
+				<string>Dec</string>
+				<string>This</string>
+				<string>Next</string>
+				<string>Last</string>
+				<string>In</string>
+				<string>From</string>
+				<string>Since</string>
+				<string>To</string>
+				<string>Until</string>
+				<!-- Commmand directives -->
+				<string>account</string>
+				<string>alias</string>
+				<string>apply</string>
+				<string>assert</string>
+				<string>bucket</string>
+				<string>capture</string>
+				<string>check</string>
+				<string>comment</string>
+				<string>commodity</string>
+				<string>default</string>
+				<string>define</string>
+				<string>end</string>
+				<string>endfixed</string>
+				<string>eval</string>
+				<string>fixed</string>
+				<string>format</string>
+				<string>include</string>
+				<string>nomarket</string>
+				<string>note</string>
+				<string>payee</string>
+				<string>tag</string>
+				<string>test</string>
+				<!-- The following are not Ledger keywords   -->
+				<!-- Feel free to remove them or modify them -->
+<!-- 
+				<string>Accounts</string>
+				<string>Assets</string>
+				<string>Card</string>
+				<string>Cash</string>
+				<string>Checking</string>
+				<string>Credit</string>
+				<string>Debit</string>
+				<string>Equity</string>
+				<string>Expenses</string>
+				<string>Income</string>
+				<string>Interest</string>
+				<string>Liabilities</string>
+				<string>Payable</string>
+				<string>Receivable</string>
+				<string>Savings</string>
+				<string>Taxes</string>
+ -->
+	        </array>
+	    </dict>
+	    	
+	    <dict>
+	        <key>RunKind</key> <string>com.barebones.bblm.predefined-symbol</string>
+	        <key>Keywords</key>
+	        <array>
+				<string>VOHIX</string>
+				<string>VTSAX</string>
+				<string>VGHCX</string>
+				<string>VINEX</string>
+				<string>VMFXX</string>
+				<string>VOHIX</string>
+				<string>VTSAX</string>
+				<string>VTIAX</string>
+				<string>VBTLX</string>
+				<string>VBILX</string>
+			</array>
+	    </dict>
+		<dict>
+	        <key>RunKind</key> <string>com.barebones.bblm.file-include</string>
+	        <key>Keywords</key>
+	        <array>
+				<string>@@</string>
+			</array>
+	    </dict>
+<!-- 
+		<dict>
+			<key>RunKind</key> <string>com.barebones.bblm.file-include</string>
+			<key>Keywords</key>
+			<array>
+				<string>+</string>
+			</array>
+		</dict>
+ -->
+    </array>
+
+	<key>BBLMKeywordPatterns</key>
+	<array>
+		<dict>
+			<key>RunKind</key>
+			<string>com.barebones.bblm.predefined-symbol</string>
+			<key>Pattern</key>
+			<string>(\w+:)+\w+</string>
+		</dict>
+	</array>
+
+    <key>Language Features</key>
+    <dict>
+        <key>Identifier and Keyword Characters</key>
+        <string><![CDATA[!ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789:_-@]]></string>
+        <key>Comment Pattern</key>
+        <string><![CDATA[
+(?x:
+    (
+        [;\#%\|\*].*$       (?# single line comment.                           )
+    |
+        @comment            (?# multi line comment.                            )
+        (?s:.*?)
+        (
+            @end\scomment
+        |
+            \z
+        )
+    )
+)]]></string>
+        <!-- Adapt currencies as needed (I'm too lazy to add them all) -->
+        <key>String Pattern</key>
+        <string><![CDATA[
+(?x:
+    (
+        [+-]?                       (?# Optional plus | minus sign.            )
+        (                           (?# Amount.                                )
+            \d{1,3}((?P<THOUSAND_SEPARATOR_1>[[:space:],])\d{3})?((?P=THOUSAND_SEPARATOR_1)\d{3})*\.\d*
+        |
+            \d{1,3}((?P<THOUSAND_SEPARATOR_2>[[:space:]\.])\d{3})?((?P=THOUSAND_SEPARATOR_2)\d{3})*,\d*
+        |
+            (?<!\d)0(?!\d)          (?# A zero by itself.                      )
+        )
+        \s*                         (?# Optional white space.                  )
+        (EUR|USD|CAD|AUD)?          (?# Add other currencies if needed.        )
+    |
+        (\$|€|¥|£)                  (?# Add other currencies if needed.        )
+        \s*                         (?# Optional white space.                  )
+        [+-]?                       (?# Optional plus | minus sign.            )
+        (                           (?# Amount.                                )
+            \d{1,3}((?P<THOUSAND_SEPARATOR_3>[[:space:],])\d{3})?((?P=THOUSAND_SEPARATOR_3)\d{3})*\.\d*
+        |
+            \d{1,3}((?P<THOUSAND_SEPARATOR_4>[[:space:]\.])\d{3})?((?P=THOUSAND_SEPARATOR_4)\d{3})*,\d*
+        |
+            (?<!\d)0(?!\d)          (?# A zero by itself.                      )
+        )
+    |
+        \d+                         (?# Date                                   )
+        (?P<DATE_SEPARATOR>[:\/\-])
+        (
+            \d+
+        |
+            (jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)
+        )
+        (?P=DATE_SEPARATOR)
+        \d+
+    )
+)]]></string>
+    </dict>
+</dict>
+</plist>

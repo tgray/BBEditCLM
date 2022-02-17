@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"> 
+<plist version="1.0"> 
+
+<!--
+	BBEdit codeless language module for bibtex files.
+	Tim Gray  <http://www.125px.com/>
+	Version 1.0
+	2022-02-16
+-->
+
+<dict> 
+	<key>BBEditDocumentType</key> 
+	<string>CodelessLanguageModule</string> 
+
+	<key>BBLMLanguageDisplayName</key> 
+	<string>BibTeX</string> 
+	<key>BBLMLanguageCode</key> 
+	<string>bibt</string> 	
+
+	<key>BBLMSuffixMap</key>
+	<array>
+		<dict>
+			<key>BBLMLanguageSuffix</key>
+			<string>.bib</string>
+		</dict>
+	</array>
+
+	<key>BBLMCommentLineDefault</key> 	<string>% </string> 
+
+	<key>BBLMColorsSyntax</key> 			<true />
+	<key>BBLMIsCaseSensitive</key> 			<false/>
+	<key>BBLMScansFunctions</key> 			<true/> 
+	<key>BBLMCanSpellCheckCodeRuns</key> 	<true/>
+	<key>BBLMSupportsTextCompletion</key> 	<false/> 
+
+	<key>BBLMKeywords</key>
+	<array>
+	    <dict>
+	        <key>RunKind</key> <string>com.barebones.bblm.keyword</string>
+	        <key>Keywords</key>
+	        <array>
+	            <string>abstract</string>
+	            <string>address</string>
+	            <string>adsnote</string>
+	            <string>adsurl</string>
+	            <string>annote</string>
+	            <string>author</string>
+	            <string>bdsk-url-1</string>
+	            <string>bdsk-url-2</string>
+	            <string>booktitle</string>
+	            <string>chapter</string>
+	            <string>date-added</string>
+	            <string>date-modified</string>
+	            <string>doi</string>
+	            <string>edition</string>
+	            <string>editor</string>
+	            <string>eid</string>
+	            <string>howpublished</string>
+	            <string>institution</string>
+	            <string>isbn</string>
+	            <string>issn</string>
+	            <string>journal</string>
+	            <string>keywords</string>
+	            <string>location</string>
+	            <string>month</string>
+	            <string>note</string>
+	            <string>number</string>
+	            <string>numpages</string>
+	            <string>organization</string>
+	            <string>pages</string>
+	            <string>publisher</string>
+	            <string>refer1</string>
+	            <string>school</string>
+	            <string>series</string>
+	            <string>title</string>
+	            <string>type</string>
+	            <string>url</string>
+	            <string>volume</string>
+	            <string>year</string>
+	        </array>
+	    </dict>
+	
+	    <dict>
+	        <key>RunKind</key> <string>com.barebones.bblm.predefined-symbol</string>
+	        <key>Keywords</key>
+	        <array>
+	            <string>article</string>
+	            <string>book</string>
+	            <string>booklet</string>
+	            <string>conference</string>
+	            <string>inbook</string>
+	            <string>incollection</string>
+	            <string>inproceedings</string>
+	            <string>manual</string>
+	            <string>masterthesis</string>
+	            <string>misc</string>
+	            <string>phdthesis</string>
+	            <string>proceedings</string>
+	            <string>techreport</string>
+	            <string>unpublished</string>	
+			</array>
+	    </dict>
+
+	</array>
+	
+	<key>BBLMCompletableRunKinds</key>
+	<array>
+		<string>com.barebones.bblm.keywords</string>
+		<string>com.barebones.bblm.preprocessor</string>
+		<string>com.barebones.bblm.predefined-symbol</string>
+	</array>
+
+	<key>Language Features</key> 
+	<dict>
+
+
+		<key>Open Line Comments</key>       	<string>%</string>
+		<key>Open Block Comments</key>      	<false/>
+		<key>Close Block Comments</key>     	<false/>
+
+		<key>Identifier and Keyword Character Class</key>
+		<string>A-Za-z0-9_-</string>
+		
+		<key>Function Pattern</key>
+		<string><![CDATA[
+		(?x: 
+		(?P<leadspace>^\s*)
+		(?P<function>
+			@\w+{
+			(?P<function_name>
+				[^,]+
+				),
+				[^@]*}
+			)
+		)
+		]]>
+		</string>
+
+<!-- Latex quoted strings can be highlighted with the following pattern, but
+comments will then also need to be matched via pattern.  Uncommenting these two
+patterns breaks a few of the keywords defined above, specifically the ones with
+dashes in them. -->
+<!-- 
+		<key>String Pattern</key>
+            <string><![CDATA[(?x)
+			(
+				``[^']*?''  (?# Double-quote)
+			|
+				`[^'`]*?'{1}  (?# Single-quote)
+			)
+			]]></string>
+
+		<key>Comment Pattern</key>
+            <string><![CDATA[(?x)
+				\% .* $
+			]]></string>
+ -->
+
+	</dict>
+</dict> 
+</plist>
+
